@@ -7,9 +7,7 @@ namespace Regexp
     {
         static void Main(string[] args)
         {
-
-            Build();
-
+            Build(); //Kicks off the program.
         }
 
         public static void Build()
@@ -39,7 +37,7 @@ namespace Regexp
             GetValidPhone(phoneNumberReg, phone2NumberReg, phone3NumberReg);
             GetValidDate(dateReg);
         }
-        public static void GetValidName(string req) //Method for testing user input against Regex requirements
+        public static void GetValidName(string req) //Method for testing user input against Regex requirements for name.
         {
             Regex reg = new Regex(req);
             Console.WriteLine("Please tell us your name.");
@@ -50,7 +48,7 @@ namespace Regexp
             Console.WriteLine(matched);
         }
 
-        public static void GetValidEmail(string req)
+        public static void GetValidEmail(string req) //Method for testing user input against Regex requirements for email.
         {
             Regex reg = new Regex(req);
             Console.WriteLine("Please enter your desired email.");
@@ -61,7 +59,7 @@ namespace Regexp
             Console.WriteLine(matched);
         }
 
-        public static void GetValidPhone(string req, string req2, string req3)
+        public static void GetValidPhone(string req, string req2, string req3) //Method for testing user input against Regex requirements for phone.
         {
             Regex reg = new Regex(req);
             Console.WriteLine("Please enter your desired phone number.");
@@ -78,7 +76,7 @@ namespace Regexp
                 ContinuePhone1(req2, req3, mystring);
             }   
         }
-        public static void ContinuePhone1(string req2, string req3, string mystring)
+        public static void ContinuePhone1(string req2, string req3, string mystring) //Method for phone to pass to, second format accepted.
         {
             Regex reg = new Regex(req2);
             bool matched = reg.IsMatch(mystring);
@@ -93,7 +91,7 @@ namespace Regexp
             }
         }
 
-        public static void ContinuePhone2(string req3, string mystring)
+        public static void ContinuePhone2(string req3, string mystring) //Method for phone to pass to, third format accepted.
         {
             Regex reg = new Regex(req3);
             bool matched = reg.IsMatch(mystring);
@@ -101,7 +99,7 @@ namespace Regexp
             return;
         }
 
-        public static void GetValidDate(string req)
+        public static void GetValidDate(string req) //Method for date entry to pass through, limiting day to 1-12 and month to 1-31.
         {
             Regex reg = new Regex(req); 
             int monthNumber = GetValidMonth("Please enter your month. (1-12)");
@@ -121,7 +119,7 @@ namespace Regexp
             Console.WriteLine(matched);
         }
 
-        public static int GetValidMonth(string prompt)
+        public static int GetValidMonth(string prompt) //Month number validation 1-12 & number.
         {
             Console.WriteLine(prompt);
             bool isValid = int.TryParse(Console.ReadLine(), out int number);
@@ -133,7 +131,7 @@ namespace Regexp
             return number;
         }
 
-        public static int GetValidDay(string prompt)
+        public static int GetValidDay(string prompt) //Day number validation 1-31 & number.
         {
             Console.WriteLine(prompt);
             bool isValid = int.TryParse(Console.ReadLine(), out int number);
@@ -146,7 +144,7 @@ namespace Regexp
             return number;
         }
 
-        public static int GetValidYear(string prompt)
+        public static int GetValidYear(string prompt) //Year number validation 1000-9999 & number.
         {
             Console.WriteLine(prompt);
             bool isValid = int.TryParse(Console.ReadLine(), out int number);
@@ -159,7 +157,7 @@ namespace Regexp
             return number;
         }
 
-        public static bool GetValidDateFormat(int num1, out string s1)
+        public static bool GetValidDateFormat(int num1, out string s1) //Corrects entry from single digit to double digit in the event of a 1-9.
         {
             if (num1 < 10)
             {
